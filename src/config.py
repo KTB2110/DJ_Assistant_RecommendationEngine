@@ -19,9 +19,9 @@ for dir_path in [RAW_DATA_DIR, PROCESSED_DATA_DIR, CACHE_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
 
 # Spotify credentials
-SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
-SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI", "http://localhost:8888/callback")
+SPOTIFY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
+SPOTIFY_REDIRECT_URI = os.getenv("SPOTIPY_REDIRECT_URI", "http://localhost:8888/callback")
 
 # Optional paths
 MUSIC_LIBRARY_PATH = os.getenv("MUSIC_LIBRARY_PATH")
