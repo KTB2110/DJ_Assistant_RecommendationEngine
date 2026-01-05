@@ -4,10 +4,14 @@
 
 **An intelligent DJ assistant that recommends tracks based on harmonic compatibility, BPM matching, and energy flow — using real DJ mixing principles.**
 
+[![Try it out](https://img.shields.io/badge/Try_it_out-Live_Demo-4CAF50?style=for-the-badge&logo=railway&logoColor=white)](https://dj-assistant-frontend-production.up.railway.app/)
+
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.125-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
+> **Note:** Song recommendations are currently limited to the ~90,000 tracks in the [Maharishi Dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset) from Hugging Face.
 
 </div>
 
