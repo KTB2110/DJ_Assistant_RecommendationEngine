@@ -382,6 +382,22 @@ function App() {
           </button>
         </div>
 
+        {/* Dataset Info Note */}
+        <div className="mt-3 max-w-xl text-xs text-spotify-lightgray">
+          <p>
+            🎵 This recommendation engine uses ~90k songs from the{' '}
+            <a 
+              href="https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-spotify-green hover:underline"
+            >
+              Maharshipandya Spotify Tracks Dataset
+            </a>
+            . If a song isn't showing up, please try a different one. Note: Spotify previews are unavailable for a small subset of tracks but should be available for most.
+          </p>
+        </div>
+
         {/* Search Results */}
         {searchResults.length > 0 && (
           <div className="mt-4 bg-spotify-darkgray rounded-lg p-4 max-w-xl">
