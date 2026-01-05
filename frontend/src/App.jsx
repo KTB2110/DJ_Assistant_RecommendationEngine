@@ -61,6 +61,9 @@ function App() {
   // Loading state for refresh button
   const [isRefreshing, setIsRefreshing] = useState(false)
 
+  // Tutorial visibility
+  const [showTutorial, setShowTutorial] = useState(true)
+
   // Camelot wheel mapping
   const SPOTIFY_TO_CAMELOT = {
     '0,0': '5A', '1,0': '12A', '2,0': '7A', '3,0': '2A', '4,0': '9A', '5,0': '4A',
@@ -363,8 +366,118 @@ function App() {
         </button>
       </header>
 
+      {/* Tutorial Section */}
+      <div className="px-6 pt-6">
+        <div className="bg-spotify-darkgray rounded-lg mb-6">
+          {/* Tutorial Header */}
+          <div 
+            className="flex justify-between items-center p-4 cursor-pointer hover:bg-spotify-gray rounded-t-lg transition"
+            onClick={() => setShowTutorial(!showTutorial)}
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">🎧</span>
+              <h3 className="text-lg font-semibold">Quick Start Tutorial</h3>
+            </div>
+            <span className="text-spotify-lightgray">{showTutorial ? '▲ Hide' : '▼ Show'}</span>
+          </div>
+
+          {/* Tutorial Content */}
+          {showTutorial && (
+            <div className="p-4 pt-0 border-t border-spotify-gray">
+              <div className="space-y-4">
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Search for Your Starting Track</h4>
+                    <p className="text-spotify-lightgray text-sm">Use the search bar below to find your first song. Type the track name or artist and hit Enter or click Search.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Load Into Deck A</h4>
+                    <p className="text-spotify-lightgray text-sm">Click on any search result to load it into Deck A. The track will appear with its details and Spotify preview.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Get AI Recommendations</h4>
+                    <p className="text-spotify-lightgray text-sm">Recommendations will automatically appear at the bottom of the page. These are AI-generated suggestions that mix well with your selected track.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    4
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Choose Your Next Track</h4>
+                    <p className="text-spotify-lightgray text-sm">Click any recommendation to load it into Deck B. You can preview the track and see how it matches with your current selection.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    5
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Control Your Mix Direction</h4>
+                    <p className="text-spotify-lightgray text-sm">Use the <strong>Recommendation Settings</strong> to control genre preferences and how the energy/BPM should evolve (build up, drop down, or maintain).</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    6
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Advanced Fine-Tuning</h4>
+                    <p className="text-spotify-lightgray text-sm">Click <strong>"Show Advanced"</strong> in Recommendation Settings for granular control over features like danceability, valence, acousticness, and more.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    7
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Build Your Setlist</h4>
+                    <p className="text-spotify-lightgray text-sm">Click <strong>"Add to Deck"</strong> to commit tracks to your playlist. This builds your master setlist in the order A1, B1, A2, B2...</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 items-start">
+                  <div className="bg-spotify-green text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm flex-shrink-0">
+                    8
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-spotify-green mb-1">Visualize Your Flow</h4>
+                    <p className="text-spotify-lightgray text-sm">Click <strong>"Show Graphs"</strong> in the top-right to see how your setlist flows in terms of energy, tempo, and other musical features.</p>
+                  </div>
+                </div>
+
+                <div className="bg-spotify-gray rounded-lg p-3 mt-4">
+                  <p className="text-spotify-lightgray text-xs">
+                    <strong>Pro Tip:</strong> The system automatically switches recommendation sources after each "Add to Deck" action to help you build a flowing setlist that alternates between the two decks.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Search */}
-      <div className="p-6">
+      <div className="px-6 pb-6">
         <div className="flex gap-4 max-w-xl">
           <input
             type="text"
