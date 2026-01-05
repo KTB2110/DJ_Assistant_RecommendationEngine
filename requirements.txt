@@ -90,3 +90,5 @@ validators==0.35.0
 xxhash==3.6.0
 yarl==1.22.0
 zipp==3.23.0
+fastapi==0.125.0
+uvicorn==0.38.0

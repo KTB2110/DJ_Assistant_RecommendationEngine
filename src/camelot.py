@@ -35,6 +35,46 @@ SPOTIFY_TO_CAMELOT = {
     (11, 1): "1B",  # B major
 }
 
+MUSICAL_KEYS = {
+    (0, 0): "C minor",
+    (1, 0): "C# minor",
+    (2, 0): "D minor",
+    (3, 0): "D# minor",
+    (4, 0): "E minor",
+    (5, 0): "F minor",
+    (6, 0): "F# minor",
+    (7, 0): "G minor",
+    (8, 0): "G# minor",
+    (9, 0): "A minor",
+    (10, 0): "A# minor",
+    (11, 0): "B minor",
+    (0, 1): "C major",
+    (1, 1): "C# major",
+    (2, 1): "D major",
+    (3, 1): "D# major",
+    (4, 1): "E major",
+    (5, 1): "F major",
+    (6, 1): "F# major",
+    (7, 1): "G major",
+    (8, 1): "G# major",
+    (9, 1): "A major",
+    (10, 1): "A# major",
+    (11, 1): "B major",
+}
+
+def get_musical_key(key: int, mode: int) -> str:
+    """
+    Convert Spotify key and mode to standard musical key notation.
+    
+    Args:
+        key: Spotify key (0-11, where 0 = C)
+        mode: Spotify mode (0 = minor, 1 = major)
+    
+    Returns:
+        Musical key string (e.g., "C major", "A minor")
+    """
+    return MUSICAL_KEYS.get((key, mode), "Unknown")
+
 def spotify_to_camelot(key: int, mode: int) -> str:
     """
     Convert Spotify key and mode to Camelot notation.
