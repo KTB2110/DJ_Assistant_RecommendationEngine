@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -79,7 +81,7 @@ function App() {
   // Fetch all genres on mount
   useEffect(() => {
     const fetchGenres = async () => {
-      const response = await fetch('http://127.0.0.1:8000/genres')
+      const response = await fetch(`${API_URL}/genres`)
       const data = await response.json()
       setAllGenres(data)
     }
@@ -234,7 +236,7 @@ function App() {
     if (!track) return
     
     setIsRefreshing(true)
-    const response = await fetch('http://127.0.0.1:8000/recommend', {
+    const response = await fetch(`${API_URL}/recommend`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -256,7 +258,7 @@ function App() {
     const track = getSourceTrack()
     if (!track) return
     
-    const response = await fetch(`http://127.0.0.1:8000/genres/${track.track_genre}/similar?top_k=5`)
+    const response = await fetch(`${API_URL}/genres/${track.track_genre}/similar?top_k=5`)
     const data = await response.json()
     
     // Include current genre + similar ones
@@ -269,7 +271,7 @@ function App() {
   const handleSearch = async () => {
     if (!searchQuery.trim()) return
     
-    const response = await fetch(`http://127.0.0.1:8000/search?query=${encodeURIComponent(searchQuery)}&limit=10`)
+    const response = await fetch(`${API_URL}/search?query=${encodeURIComponent(searchQuery)}&limit=10`)
     const data = await response.json()
     setSearchResults(data)
   }
